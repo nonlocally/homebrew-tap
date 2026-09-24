@@ -1,8 +1,8 @@
 class Homi < Formula
   desc "Persistent agent identities, messaging, and execution"
   homepage "https://github.com/nonlocally/HOMI"
-  url "https://github.com/nonlocally/HOMI/releases/download/v0.5.0/homi-0.5.0.tar.gz"
-  sha256 "17882dfb57404fd9064ba098eb8e49a1c4b72885c9c9f58b43ed2235c002008b"
+  url "https://github.com/nonlocally/HOMI/releases/download/v0.5.1/homi-0.5.1.tar.gz"
+  sha256 "adb8b898a5e9bf62d505c5b8d4ea674839e2d08619caac7c5805b5ba97b26135"
   license "MIT"
 
   depends_on "bash"
@@ -62,7 +62,7 @@ class Homi < Formula
     JSON.parse((libexec/"release.json").read).fetch("files").each do |name, sha|
       assert_equal sha, Digest::SHA256.file(libexec/name).hexdigest
     end
-    assert_match "0.5.0", shell_output("#{bin}/homi version")
+    assert_match "0.5.1", shell_output("#{bin}/homi version")
     assert_match "bus", shell_output("#{bin}/homi --help")
     ENV["HOME"] = testpath
     ENV["COMMUNICATE_DATA"] = testpath/"data"
