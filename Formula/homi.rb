@@ -2,7 +2,7 @@ class Homi < Formula
   desc "Persistent agent identities, messaging, and execution"
   homepage "https://github.com/nonlocally/HOMI"
   url "https://github.com/nonlocally/HOMI/releases/download/v0.3.0/homi-0.3.0.tar.gz"
-  sha256 "1bdc0c8603f285fc7cf6afcc93ef491e6324be8e2958209b3c28214aea0d4ebe"
+  sha256 "60f0fdc3451ab494db2030972dbefdad1548b1d5593d0bc17307f2bcb1e34ca8"
   license "MIT"
 
   depends_on "bash"
@@ -34,9 +34,13 @@ class Homi < Formula
 
   def caveats
     <<~EOS
-      Enable your agent integrations explicitly:
-        homi setup --claude --codex
+      Choose your clients and optional workstation tools:
+        homi setup
         homi doctor
+
+      Preview an explicit selection, including missing dependencies:
+        homi setup --install-missing --claude --codex --terminal --mesh --dry-run
+      Replace --dry-run with --yes to apply it. Add --ghostty on macOS if wanted.
 
       To enable the persistent local daemon:
         homi setup --service
@@ -44,8 +48,10 @@ class Homi < Formula
       Terminal and mesh profiles are optional. Preview before applying:
         homi profile preview --terminal --mesh
 
-      Install tmux for agent panes; fzf and jq for the optional terminal/mesh profile.
-      Model clients and their authentication are managed separately.
+      Guided setup offers missing selected tools and clients. Login is a separate choice.
+      Selected clients include tmux for agent seats; terminal configuration remains optional.
+      Terminal shortcuts work from zsh or Bash; your interactive and login shells stay unchanged.
+      Existing clients are not implicitly upgraded; HOMI uninstall keeps third-party packages.
       Installing or upgrading this formula does not replace your terminal configuration.
     EOS
   end
