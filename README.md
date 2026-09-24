@@ -18,6 +18,6 @@ its HOMI skills and tools perform the operations.
 Client authentication, service setup and optional profiles are separate from
 formula installation. Upgrading the formula requires
 explicit activation with its `homi update`; remove owned integrations before
-uninstalling the formula. See the [installation guide](https://github.com/nonlocally/HOMI/blob/v0.3.0/docs/INSTALL.md#homebrew) for the exact order.
+uninstalling the formula. See the [installation guide](https://github.com/nonlocally/HOMI/blob/v0.5.0/docs/INSTALL.md#homebrew) for the exact order.
 
 MIT licensed.
